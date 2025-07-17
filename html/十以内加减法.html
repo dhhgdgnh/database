@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>卡通数学乐园</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: url('file:///D:/Users/admin/Pictures/00.jpeg') no-repeat center/cover;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255,105,180,0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .character {
+            width: 120px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        #question {
+            font-size: 3.5em;
+            color: #FF69B4;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin: 20px 0;
+        }
+
+        #answer {
+            font-size: 2em;
+            width: 120px;
+            padding: 15px;
+            border: 3px solid #00CED1;
+            border-radius: 15px;
+            margin: 15px;
+            background: #F0FFF0;
+        }
+
+        button {
+            background: #FF69B4;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #FF1493;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feedback {
+            font-size: 1.5em;
+            margin: 20px 0;
+            min-height: 40px;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            font-size: 1.3em;
+            color: #2E8B57;
+        }
+    </style>
+</head>
+<body>
+    <img src="file:///D:/Users/admin/Pictures/01.png" 
+         class="character" 
+         alt="卡通小老师">
+
+    <div class="game-box">
+        <div class="score-board">
+            <div>⭐ 星星: <span id="score">0</span></div>
+            <div>💖 生命值: <span id="lives">3</span></div>
+        </div>
+
+        <div id="question"></div>
+        <input type="number" id="answer" placeholder="输入答案" autofocus>
+        <div class="feedback" id="feedback"></div>
+        <button onclick="checkAnswer()">提交答案</button>
+
+        <audio id="correctSound" src="https://assets.mixkit.co/active_storage/sfx/257/257-preview.mp3"></audio>
+        <audio id="wrongSound" src="file:///D:/Users/admin/Music/12607.wav"></audio>
+    </div>
+
+    <script>
+        let currentAnswer = 0;
+        let score = 0;
+        let lives = 3;
+        const synth = window.speechSynthesis;
+
+        function generateQuestion() {
+            const num1 = Math.floor(Math.random() * 11);
+            let num2 = Math.floor(Math.random() * 11);
+            const operator = Math.random() < 0.5 ? '+' : '-';
+
+            if (operator === '-' && num1 < num2) {
+                [num1, num2] = [num2, num1];
+            }
+
+            currentAnswer = operator === '+' ? num1 + num2 : num1 - num2;
+            document.getElementById('question').textContent = 
+                `${num1} ${operator} ${num2} = ?`;
+            document.getElementById('answer').value = '';
+        }
+
+        function speak(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'zh-CN';
+            utterance.rate = 0.9;
+            synth.speak(utterance);
+        }
+
+        function updateGame(isCorrect) {
+            if(isCorrect) {
+                score += 10;
+                document.getElementById('feedback').innerHTML = '🌈 正确！继续加油！';
+                document.getElementById('feedback').style.color = '#32CD32';
+                document.getElementById('correctSound').play();
+                speak('答对了，真棒！');
+            } else {
+                lives--;
+                document.getElementById('feedback').innerHTML = `✨ 正确答案：${currentAnswer}`;
+                document.getElementById('feedback').style.color = '#FF4500';
+                document.getElementById('wrongSound').play();
+                speak('再仔细想想哦！');
+                
+                if(lives <= 0) {
+                    setTimeout(() => {
+                        alert(`游戏结束！获得星星：${score}`);
+                        location.reload();
+                    }, 500);
+                }
+            }
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('lives').textContent = lives;
+        }
+
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById('answer').value);
+            
+            if(isNaN(userAnswer)) {
+                document.getElementById('feedback').textContent = '🖍️ 请输入数字哦！';
+                return;
+            }
+
+            updateGame(userAnswer === currentAnswer);
+            generateQuestion();
+        }
+
+        // 初始化游戏
+        generateQuestion();
+
+        // 回车键支持
+        document.getElementById('answer').addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') checkAnswer();
+        });
+    </script>
+</body>
+</html>
