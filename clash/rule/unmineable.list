@@ -9,5 +9,6 @@ DOMAIN-KEYWORD,unmineable
 DOMAIN-KEYWORD,unminable
 # IP段匹配
 IP-CIDR,134.122.7.139/32,no-resolve
+IP-CIDR,195.201.121.246/32,no-resolve
 
 
