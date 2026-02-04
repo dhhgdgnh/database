@@ -11,7 +11,7 @@ DOMAIN-KEYWORD,tagss
 
 # IP段匹配
 IP-CIDR,219.146.1.66/32,no-resolve
-IP-CIDR,69.63.217.7/32,no-resolve
+IP-CIDR,64.186.228.46/32,no-resolve
 
 # 国内DNS
 DOMAIN-SUFFIX,dns.alidns.com
