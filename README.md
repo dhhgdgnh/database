@@ -10,7 +10,7 @@
     ├── confg/                 ← 各位大佬的原文件
     ├── icon/                  ← 是本仓库制作的图标文件 
     ├── rule/                  ← 是本仓库私人规则，可按需引用
-    ├──Clash_config.yaml       ← 是本仓库更改的 Clash 配置样例
+    ├── Clash_config.yaml       ← 是本仓库更改的 Clash 配置样例
     └── …
 ```
 
