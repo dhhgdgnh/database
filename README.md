@@ -17,8 +17,6 @@
 
 
 
-
-
 ## 🚀 快速开始（Clash_config.yaml）
 
 仓库中的 `Clash_config.yaml` 是一个完整的 Clash 配置样例，包含：
@@ -32,6 +30,15 @@
 
 ## ❤️ 致谢
 
-源文件仓库地址：
-https://github.com/qichiyuhub/rule 
-https://github.com/Giveupmoon/Clash_Rules_Yaml
+**源项目仓库地址**
+- [Giveupmoon](https://github.com/Giveupmoon/Clash_Rules_Yaml)
+- [qichiyuhub](https://github.com/qichiyuhub/rule )
+
+**分流规则和ICO图标**
+- [MetaCubeX](https://github.com/MetaCubeX/meta-rules-dat/tree/meta) - 分流规则
+- [ACL4SSR](https://github.com/ACL4SSR/ACL4SSR/tree/master) - 分流规则
+- [Vbaethon](https://github.com/Vbaethon/HOMOMIX ) - ICO图标
+
+**特别感谢**
+- 所有反馈问题和建议的朋友
+- 所有贡献代码和文档的开发者
