@@ -189,10 +189,10 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 
 rule-providers: 
-  private_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/database/refs/heads/main/clash/rule/Direct.list"}
-  cnprivate_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/database/refs/heads/main/clash/rule/CN_Direct.list"}
-  proxylite: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/database/refs/heads/main/clash/rule/ProxyLite.list"}
-  unmineable_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/database/refs/heads/main/clash/rule/unmineable.list"}
+  private_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/Clash_Rules_Yaml/refs/heads/main/clash/rule/Direct.list"}
+  cnprivate_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/Clash_Rules_Yaml/refs/heads/main/clash/rule/CN_Direct.list"}
+  proxylite: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/Clash_Rules_Yaml/refs/heads/main/clash/rule/ProxyLite.list"}
+  unmineable_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/Clash_Rules_Yaml/refs/heads/main/clash/rule/unmineable.list"}
   
    
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
