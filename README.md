@@ -2,3 +2,7 @@
 使用前：
 
     需要了解编写规则配置(*.ymal)
+
+感谢qichiyuhub、Giveupmoon
+仓库地址：https://github.com/qichiyuhub/rule
+        https://github.com/Giveupmoon/Clash_Rules_Yaml
