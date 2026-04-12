@@ -7,7 +7,7 @@
 .
 ├── README.md              ← 项目说明（这个文件）
 └── clash            
-    ├── confg/                 ← 各位大佬的源文件
+    ├── confg/                 ← 各位大佬的原文件
     ├── icon/                  ← 是本仓库制作的图标文件 
     ├── rul├e/                 ← 是本仓库私人规则，可按需引用
     ├──Clash_config.yaml       ← 是本仓库更改的 Clash 配置样例
@@ -30,7 +30,7 @@
 
 ## ❤️ 致谢
 
-**源项目仓库地址**
+**原项目仓库地址**
 - [Giveupmoon](https://github.com/Giveupmoon/Clash_Rules_Yaml)
 - [qichiyuhub](https://github.com/qichiyuhub/rule )
 
