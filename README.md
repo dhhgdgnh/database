@@ -19,7 +19,7 @@
 
 
 
-## 🚀 快速开始（Start.yaml）
+## 🚀 快速开始（Clash_config.yaml）
 
 仓库中的 `Clash_config.yaml` 是一个完整的 Clash 配置样例，包含：
 
