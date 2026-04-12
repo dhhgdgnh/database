@@ -3,7 +3,7 @@
 # 跑裸核用户请自行去掉下方控制面板模块的注释。
 # 机场订阅
 proxy-providers:  
-  SU:
+  1-a:
     url: "订阅地址"
     type: http
     #interval: 86400
@@ -91,7 +91,7 @@ dns:
     - "time.*.com"
     - "+.market.xiaomi.com"
   default-nameserver:
-    - 223.5.5.5
+    - 218.4.4.4
   proxy-server-nameserver:
     - https://223.5.5.5/dns-query
   # namesever尽量用运营商提供的DNS
@@ -114,7 +114,6 @@ proxy-groups:
   - {name: Telegram, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Telegram.png"}
   - {name: x, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/X.png"}
   - {name: binanc, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Binance.png"}
-  - {name: unmineable, <<: *pr, icon: "https://raw.githubusercontent.com/dhhgdgnh/database/refs/heads/main/clash/icon/unmineable.png"}
   - {name: instagram, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Instagram.png"}
   - {name: facebook, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Facebook.png"}
   - {name: AI, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/AI.png"}
@@ -124,16 +123,12 @@ proxy-groups:
   - {name: Spotify, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Spotify.png"}
   - {name: Steam, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Steam.png"}
   - {name: Speedtest, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/SpeedTest.png"}
-  - {name: xbox, <<: *di, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Xbox.png"}
   - {name: Microsoft, <<: *di, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Microsoft.png"}
   - {name: Apple, <<: *di, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Apple.png"}
-  - {name: douyin, <<: *di, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Douyin.png"}
-  - {name: bytedance, <<: *di, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Bytedance.png"}
-  - {name: bilibili, <<: *di, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/bilibili.png"}
   - {name: 直连, <<: *di, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/DIRECT.png"}
   - {name: 漏网之鱼, <<: *pr, icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Fish.png"}
   
-  - {name: 云服务器, type: select, include-all: true, filter: "(?i)xui|sui", icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Server.png"}
+  - {name: 云服务器, type: select, include-all: true, filter: "(?=.*(DM))^((?!(多米)).)*$", icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Server.png"}
   - {name: 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong", icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Hong_Kong.png"}
   - {name: 日本节点, type: select, include-all: true, filter: "(?i)日本|jp|japan", icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Japan.png"}
   - {name: 新加坡节点, type: select, include-all: true, filter: "(?i)新加坡|坡|狮城|SG|Singapore", icon: "https://raw.githubusercontent.com/Vbaethon/HOMOMIX/main/Icon/Color/Singapore.png"}
@@ -145,19 +140,16 @@ proxy-groups:
 # 规则匹配
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 rules:
-  - IP-CIDR,192.168.0.0/24,DIRECT,no-resolve
+  - IP-CIDR,192.168.8.0/24,DIRECT,no-resolve
   - RULE-SET,private_class,DIRECT
   - RULE-SET,proxylite,默认代理
   - RULE-SET,binance_domain,binanc
-  - RULE-SET,unmineable_class,unmineable
-  - RULE-SET,apple_domain,Apple
-  - RULE-SET,Steam_domain,Steam
-  - RULE-SET,ai_domain,AI
   - RULE-SET,github_domain,GitHub
-  - RULE-SET,x_domain,x
+  - RULE-SET,ai_domain,AI
   - RULE-SET,youtube_domain,YouTube
   - RULE-SET,google_domain,Google
-  - RULE-SET,xbox_domain,xbox
+  - RULE-SET,x_domain,x
+  - RULE-SET,Steam_domain,Steam
   - RULE-SET,microsoft_domain,Microsoft
   - RULE-SET,tiktok_domain,TikTok
   - RULE-SET,instagram_domain,instagram
@@ -167,9 +159,7 @@ rules:
   - RULE-SET,netflix_domain,NETFLIX
   - RULE-SET,Spotify_domain,Spotify  
   - RULE-SET,paypal_domain,PayPal
-  - RULE-SET,douyin_domain,douyin
-  - RULE-SET,bytedance_domain,bytedance
-  - RULE-SET,bilibili_domain,bilibili            
+  - RULE-SET,apple_domain,Apple           
   - RULE-SET,private_domain,DIRECT
   - RULE-SET,cnprivate_class,DIRECT                                                                             
   - RULE-SET,gfw_domain,默认代理
@@ -192,9 +182,7 @@ rule-providers:
   private_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/Clash_Rules_Yaml/refs/heads/main/clash/rule/Direct.list"}
   cnprivate_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/Clash_Rules_Yaml/refs/heads/main/clash/rule/CN_Direct.list"}
   proxylite: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/Clash_Rules_Yaml/refs/heads/main/clash/rule/ProxyLite.list"}
-  unmineable_class: { <<: *class, url: "https://raw.githubusercontent.com/dhhgdgnh/Clash_Rules_Yaml/refs/heads/main/clash/rule/unmineable.list"}
   
-   
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   ai_domain: {  <<: *domain, url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs"}
   youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
@@ -213,11 +201,6 @@ rule-providers:
   tiktok_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
   instagram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/instagram.mrs"}
   facebook_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"}
-  xbox_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/xbox.mrs"}
-  douyin_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/douyin.mrs"}
-  bytedance_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bytedance.mrs"}
-  bilibili_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs"}
-  
   
   gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
   geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
