@@ -16,6 +16,7 @@ DOMAIN-KEYWORD,tagss
 
 # IP段匹配
 IP-CIDR,64.186.228.46/32,no-resolve
+IP-CIDR,154.36.155.214/32,no-resolve
 IP-CIDR,139.196.51.30/32,no-resolve
 
 # 国内DNS
